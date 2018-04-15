@@ -1,8 +1,8 @@
 static int ft_iswhite(char c)
 {
-    if (c == ' ')
-        return 1;
-    return 0;
+    if (c == ' ' || c == '\n' || c == '\t')
+        return (1);
+    return (0);
 }
 
 char * ft_strtrim(char const *s)
@@ -11,8 +11,7 @@ char * ft_strtrim(char const *s)
     int e;
     
     e = ft_strlen(s);
-    b = 0;
-    
+    b = 0; 
     if(ft_iswhite(s[b]))
     {
         while (ft_iswhite(s[b]))
