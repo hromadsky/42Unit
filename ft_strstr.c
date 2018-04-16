@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/16 17:08:27 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 17:08:31 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	t_list	*tmp;
-	t_list	*next;
+	int len;
+	int i;
+	int g;
 
-	tmp = *alst;
-	if (del != NULL)
+	g = 0;
+	if (!ft_strlen(needle))
+		return ((char *)haystack);
+	len = ft_strlen(haystack);
+	while (len--)
 	{
-		while (tmp != NULL)
+		i = 0;
+		if (haystack[g] == needle[i])
 		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
+			while ((haystack[g] == needle[i]) && haystack[g])
+			{
+				g++;
+				i++;
+			}
+			if (i == (int)ft_strlen(needle))
+				return (&((char*)haystack)[g - i]);
+			g = g - i;
 		}
-		*alst = NULL;
+		g++;
 	}
+	return (NULL);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/16 15:01:50 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 15:02:51 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strnew(size_t size)
 {
-	t_list	*tmp;
-	t_list	*next;
+	char *str;
 
-	tmp = *alst;
-	if (del != NULL)
-	{
-		while (tmp != NULL)
-		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
-		}
-		*alst = NULL;
-	}
+	str = (char *)malloc(sizeof(*str) * size + 1);
+	if (str == (NULL))
+		return (NULL);
+	ft_memset(str, '\0', size + 1);
+	return (str);
 }

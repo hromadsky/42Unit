@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/03/30 18:47:10 by dhromads          #+#    #+#             */
+/*   Updated: 2018/03/30 18:47:34 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strdup(const char *s1)
 {
-	t_list	*tmp;
-	t_list	*next;
+	char	*buf;
+	int		i;
 
-	tmp = *alst;
-	if (del != NULL)
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	buf = (char *)malloc(sizeof(*s1) * (i + 1));
+	if (buf == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		while (tmp != NULL)
-		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
-		}
-		*alst = NULL;
+		buf[i] = s1[i];
+		i++;
 	}
+	buf[i] = '\0';
+	return (buf);
 }

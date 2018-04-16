@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/16 16:42:39 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 16:42:40 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_list	*tmp;
-	t_list	*next;
+	unsigned char	*ptr;
+	unsigned char	c2;
+	int				i;
 
-	tmp = *alst;
-	if (del != NULL)
+	i = 0;
+	c2 = (unsigned char)c;
+	ptr = (unsigned char *)s;
+	while (n--)
 	{
-		while (tmp != NULL)
-		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
-		}
-		*alst = NULL;
+		if (ptr[i] == c2)
+			return (ptr + i);
+		i++;
 	}
+	return (NULL);
 }

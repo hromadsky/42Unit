@@ -1,8 +1,25 @@
-void ft_putstr_fd(char const *s, int fd)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/16 16:28:21 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 16:28:29 by dhromads         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putstr_fd(char const *s, int fd)
 {
-	while (*s)
+	if (s != NULL)
 	{
-		write(fd, s, 1);
-		s++;
+		while (*s)
+		{
+			write(fd, s, 1);
+			s++;
+		}
 	}
 }

@@ -1,8 +1,22 @@
-void ft_putendl_fd(char const *s, int fd)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/16 16:29:29 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 16:29:33 by dhromads         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putendl_fd(char const *s, int fd)
 {
 	if (s)
 	{
-    	ft_putstr_fd(s, fd);
+		ft_putstr_fd(s, fd);
 		ft_putchar_fd('\n', fd);
-    }
+	}
 }

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/03/30 18:48:26 by dhromads          #+#    #+#             */
+/*   Updated: 2018/03/30 18:49:06 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <string.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+size_t	ft_strlen(const char *s)
 {
-	t_list	*tmp;
-	t_list	*next;
+	size_t c;
 
-	tmp = *alst;
-	if (del != NULL)
+	c = 0;
+	while (*s)
 	{
-		while (tmp != NULL)
-		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
-		}
-		*alst = NULL;
+		c++;
+		s++;
 	}
+	return (c);
 }

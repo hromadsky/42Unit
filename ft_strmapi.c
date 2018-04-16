@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:39:28 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:39:29 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/16 15:10:56 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 15:12:59 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_list	*tmp;
-	t_list	*next;
+	char	*str;
+	int		i;
 
-	tmp = *alst;
-	if (del != NULL)
+	i = 0;
+	if (s != NULL)
 	{
-		while (tmp != NULL)
+		str = ft_strnew(ft_strlen(s));
+		if (str == NULL)
+			return (NULL);
+		if (s != NULL && f != NULL)
 		{
-			next = tmp->next;
-			del(tmp->content, tmp->content_size);
-			free(tmp);
-			tmp = next;
+			while (*s)
+			{
+				str[i] = (*f)(i, (char)*s);
+				i++;
+				s++;
+			}
+			return (str);
 		}
-		*alst = NULL;
 	}
+	return (NULL);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/16 16:18:35 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/16 16:18:37 by dhromads         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	get_len(int n)
@@ -25,7 +37,7 @@ char			*ft_itoa(int n)
 	}
 	if (!(result = ft_strnew(len)))
 		return (NULL);
-	resultr[--len] = tmp % 10 + '0';
+	result[--len] = tmp % 10 + '0';
 	while (tmp /= 10)
 		result[--len] = tmp % 10 + '0';
 	if (n < 0)
