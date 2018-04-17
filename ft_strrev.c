@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:30:38 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:30:41 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/17 12:45:48 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/17 12:45:49 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strrev(char *str)
 {
-	write(fd, &c, 1);
+	int		i;
+	int		length;
+	char	buff;
+
+	i = 0;
+	length = ft_strlen(str);
+	while (length - 1 > i)
+	{
+		buff = str[i];
+		str[i] = str[length - 1];
+		str[length - 1] = buff;
+		length--;
+		i++;
+	}
+	return (str);
 }

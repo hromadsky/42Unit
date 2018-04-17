@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_is_whitespace.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:30:38 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:30:41 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/17 12:30:38 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/17 12:30:41 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_is_whitespace(char c)
 {
-	write(fd, &c, 1);
+	return (c == ' ' || c == '\t' || c == '\n' || \
+		c == '\v' || c == '\f' || c == '\r');
 }

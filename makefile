@@ -60,6 +60,11 @@ SRCS = ft_memset.c \
 	   ft_lstadd.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c \
+	   ft_is_whitespace.c \
+	   ft_wordcount.c \
+	   ft_wordlen.c \
+	   ft_strrev.c \
+	   ft_putnstr.c \
 
 
 OBJS = $(SRCS:.c=.o)

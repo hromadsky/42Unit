@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_wordlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhromads <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 16:30:38 by dhromads          #+#    #+#             */
-/*   Updated: 2018/04/16 16:30:41 by dhromads         ###   ########.fr       */
+/*   Created: 2018/04/17 12:31:07 by dhromads          #+#    #+#             */
+/*   Updated: 2018/04/17 12:31:09 by dhromads         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_wordlen(char *w, char d)
 {
-	write(fd, &c, 1);
+	unsigned int i;
+
+	i = 0;
+	while (*w != d)
+	{
+		i++;
+		w++;
+	}
+	return (i);
 }
